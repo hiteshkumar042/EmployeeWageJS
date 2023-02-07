@@ -10,6 +10,8 @@ let totalWorkingHrs = 0;
 let empWage = 0;
 let empHrs = 0;
 let workingDay=0;
+let totalEmpWage=0;
+let empDailyWageArr = new Array();
 
 //UC3-Func to get Work hrs
 function getWorkHrs(empCheck) {
@@ -29,10 +31,12 @@ while(workingDay<=MAX_WORKING_DAYS && totalWorkingHrs<=MAX_WORKING_HRS) {
     let empCheck = Math.floor((Math.random() * 10) % 3);
     empHrs = getWorkHrs(empCheck);
     empWage = EMP_RATE_PER_HRS * empHrs;
+    //UC6 - Store empwage in Array
+    empDailyWageArr.push(empWage);
     console.log("Emp wage for day " + workingDay + " is : " + empWage);
     totalWorkingHrs = totalWorkingHrs + empHrs;
     workingDay++;
 }
 totalEmpWage = EMP_RATE_PER_HRS * totalWorkingHrs;
-
+console.log(empDailyWageArr);
 console.log("Total Employee wage for a Month: "+ totalEmpWage +" working for "+totalWorkingHrs+" Hrs in "+(workingDay-1)+" days");
